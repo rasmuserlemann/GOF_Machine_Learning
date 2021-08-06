@@ -13,11 +13,11 @@ training3 = np.random.multinomial(25, [1/6.]*6, size=100)
 training4 = np.random.multinomial(15, [1/6.]*6, size=100)
 
 class_names=["H0", "H1"]
-x = self.data
-        y = [x[0] for x in self.resp]
-        x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=self.train_percent,random_state=0)
-        model = LogisticRegression(solver='liblinear', C=10.0, random_state=0)
-        model.fit(x_train, y_train)
+x = training1
+y = np.zeros(len(training1))
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.25,random_state=0)
+model = LogisticRegression(solver='liblinear', C=10.0, random_state=0)
+model.fit(x_train, y_train)
         y_pred = model.predict(x_test)
         cnf_matrix = metrics.confusion_matrix(y_test, y_pred)
         fig, ax = plt.subplots()
