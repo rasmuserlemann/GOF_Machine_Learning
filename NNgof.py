@@ -7,7 +7,15 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
 
-training1 = np.random.multinomial(20, [1/6.]*20, size=100)
+trainx = [[]]
+trainy = []
+trainsize = 1000
+for ind in range(trainsize):
+    trainx.append([np.random.multinomial(20, [1/6.]*6, size=1), np.random.multinomial(20, [1/6.]*6, size=1)])
+    trainy.append(0)
+print(trainx)
+
+training1 = [np.random.multinomial(20, [1/6.]*20, size=100)
 
 training3 = np.random.multinomial(25, [1/6.]*6, size=100)
 training4 = np.random.multinomial(15, [1/6.]*6, size=100)
